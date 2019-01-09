@@ -36,7 +36,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class FileUploadView(views.APIView):
-    parser_classes = (MultiPartParser,)
+    # parser_classes = (MultiPartParser,)
+    parser_class = (FileUploadParser,)
 
     def put(self, request):
         if 'csv_file' not in request.data:

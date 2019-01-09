@@ -25,3 +25,8 @@ Some examples are
   api/v1/users/?first_name=Ki
   
 ```
+
+
+## api/v1/upload/
+
+127.0.0.1:8000/api/v1/upload/ put file

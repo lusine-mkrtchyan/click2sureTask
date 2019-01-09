@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url, include
+from swagger_doc.swagger_schema import schema_view
 
 urlpatterns = [
+    path('', schema_view),
     path('admin/', admin.site.urls),
     path('api/v1/', include('users_service.urls'))
 ]

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'users_service',
     'django_celery_results',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,11 @@ BROKER_CONNECTION_MAX_RETRIES = 100
 CELERY_RESULT_BACKEND = 'django-db'
 CELERY_TASK_TRACK_STARTED = True
 CELERY_IMPORTS = ('task.tasks',)
+
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'DOC_EXPANSION': 'list',
+    'APIS_SORTER': 'alpha',
+    'SECURITY_DEFINITIONS': None,
+}
