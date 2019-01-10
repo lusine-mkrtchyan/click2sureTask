@@ -10,6 +10,7 @@ router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     url(r'upload/', views.FileUploadView.as_view()),
+    url(r'encoded-upload/', views.EncodedFileUploadView.as_view()),
 ]
 
 urlpatterns += router.urls

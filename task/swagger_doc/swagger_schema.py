@@ -40,8 +40,8 @@ def schema_view(request):
                 #     coreapi.Field(name='a', required=True),
                 #     coreapi.Field(name='b')
                 # ]),
-                'multipart-body': coreapi.Link('api/v1/upload/', description='classifies url of a file', action='post', encoding='multipart/form-data', fields=[
-                    coreapi.Field(name='example', location='form', type='file')
+                'multipart-body': coreapi.Link('/api/v1/upload/', description='classifies url of a file', action='put', encoding='multipart/form-data', fields=[
+                    coreapi.Field(name='file', location='form', type='file')
                 ]),
                 # 'urlencoded': coreapi.Link('/encoding/urlencoded/', action='post', encoding='application/x-www-form-urlencoded', fields=[
                 #     coreapi.Field(name='a', required=True),
