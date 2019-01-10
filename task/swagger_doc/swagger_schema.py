@@ -14,7 +14,8 @@ def schema_view(request):
         content={
 
             'users_crud': {
-                'simple_link': coreapi.Link('/api/v1/users/', description='users list'),
+                'simple_link': coreapi.Link('/api/v1/users/', description='users list', fields=[
+                    coreapi.Field(name='filter', location='query', required=False)]),
                 'path': coreapi.Link('api/v1/?url={url}&type={type}', description='classifies file',
                                      fields=[
                                          coreapi.Field(name='url', location='path', required=True),
@@ -42,6 +43,9 @@ def schema_view(request):
                 # ]),
                 'multipart-body': coreapi.Link('/api/v1/upload/', description='classifies url of a file', action='put', encoding='multipart/form-data', fields=[
                     coreapi.Field(name='file', location='form', type='file')
+                ]),
+                'body': coreapi.Link('/api/v1/encoded-upload/', action='put', fields=[
+                    coreapi.Field(name='file', location='body')
                 ]),
                 # 'urlencoded': coreapi.Link('/encoding/urlencoded/', action='post', encoding='application/x-www-form-urlencoded', fields=[
                 #     coreapi.Field(name='a', required=True),
