@@ -9,7 +9,7 @@ import coreschema
 def schema_view(request):
 
     schema = coreapi.Document(
-        url='http://127.0.0.1:8000/',
+        url='http://18.223.188.159:8000/',
         title='DOCUMENTATION',
         content={
 
@@ -21,39 +21,29 @@ def schema_view(request):
                                          coreapi.Field(name='url', location='path', required=True),
                                          coreapi.Field(name='type', location='path', required=True)]
                                      ),
-                'query': coreapi.Link('/api/v1/users/{id}/', action='delete', fields=[
+                'query': coreapi.Link('/api/v1/users/{id}/', action='delete', description='delete user', fields=[
                     coreapi.Field(name='id', location='path', required=True)
                 ]),
 
-                'body': coreapi.Link('/api/v1/users/{id}/', action='put', fields=[
+                'body': coreapi.Link('/api/v1/users/{id}/', action='put', description='update user info', fields=[
                     coreapi.Field(name='id', location='path', required=True),
                     coreapi.Field(name='example', location='body', schema=coreschema.String(description='ThOne of: api, json'))
                 ]),
                 'path': coreapi.Link('/api/v1/users/{id}/', fields=[
                     coreapi.Field(name='id', location='path', required=True)
                 ]),
-                'form': coreapi.Link('/api/v1/users/', action='post', encoding='application/json', fields=[
+                'form': coreapi.Link('/api/v1/users/', action='post', encoding='application/json', description='creates user', fields=[
                     coreapi.Field(name='example', location='body')
                 ]),
             },
             'file_upload': {
-                # 'multipart': coreapi.Link('/multiupload/', action='post', encoding='multipart/form-data', fields=[
-                #     coreapi.Field(name='a', required=True),
-                #     coreapi.Field(name='b')
-                # ]),
-                'multipart-body': coreapi.Link('/api/v1/upload/', description='classifies url of a file', action='put', encoding='multipart/form-data', fields=[
+
+                'multipart-body': coreapi.Link('/api/v1/upload/', description='upload users csv file', action='put', encoding='multipart/form-data', fields=[
                     coreapi.Field(name='file', location='form', type='file')
                 ]),
                 'body': coreapi.Link('/api/v1/encoded-upload/', action='put', fields=[
                     coreapi.Field(name='file', location='body')
                 ]),
-                # 'urlencoded': coreapi.Link('/encoding/urlencoded/', action='post', encoding='application/x-www-form-urlencoded', fields=[
-                #     coreapi.Field(name='a', required=True),
-                #     coreapi.Field(name='b')
-                # ]),
-                # 'upload': coreapi.Link('/encoding/upload/', action='post', encoding='application/octet-stream', fields=[
-                #     coreapi.Field(name='example', location='body', required=True)
-                # ]),
             }
         }
     )

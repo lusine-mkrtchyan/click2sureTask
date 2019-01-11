@@ -1,7 +1,9 @@
 import io
 import json
+
 from django.core.files.base import ContentFile
 from django.shortcuts import render
+from django.test import override_settings
 from rest_framework import viewsets, views
 from rest_framework.exceptions import ParseError
 from rest_framework.parsers import FileUploadParser, MultiPartParser
@@ -60,9 +62,10 @@ class FileUploadView(views.APIView):
         return Response(status=204)
 
 
+
 class EncodedFileUploadView(views.APIView):
-    # parser_classes = (MultiPartParser,)
-    parser_class = (FileUploadParser,)
+    # # parser_classes = (MultiPartParser,)
+    # parser_class = (FileUploadParser,)
 
     def put(self, request):
         if 'file' not in request.data:
