@@ -9,7 +9,7 @@ import coreschema
 def schema_view(request):
 
     schema = coreapi.Document(
-        url='http://18.223.188.159:8000/',
+        url='http://18.223.188.159:80/',
         title='DOCUMENTATION',
         content={
 
