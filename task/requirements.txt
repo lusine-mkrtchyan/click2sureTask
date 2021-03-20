@@ -15,7 +15,7 @@ djangorestframework==3.9.0
 idna==2.8
 itypes==1.1.0
 gunicorn==19.9.0
-Jinja2==2.10
+Jinja2==2.11.3
 kombu==4.2.2.post1
 MarkupSafe==1.1.0
 more-itertools==5.0.0
